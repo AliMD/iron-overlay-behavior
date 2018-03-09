@@ -1,4 +1,8 @@
-<!--
+import '../../polymer/polymer.js';
+import './test-buttons.js';
+import { Polymer } from '../../polymer/lib/legacy/polymer-fn.js';
+import { html } from '../../polymer/lib/utils/html-tag.js';
+/**
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -6,28 +10,25 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<link rel="import" href="../../polymer/polymer.html">
-
-<dom-module id="test-buttons">
-  <template>
+*/
+Polymer({
+  _template: html`
     <style>
       :host {
         display: block;
-        border: 1px solid black;
+        border: 1px solid gray;
         padding: 10px;
       }
     </style>
 
-    <button id="button0">button0</button>
-    <button id="button1">button1</button>
-    <slot></slot>
-    <button id="button2">button2</button>
-  </template>
-  <script>
-    Polymer({
-      is: 'test-buttons'
-    });
-  </script>
-</dom-module>
+    <select id="select">
+      <option>1</option>
+    </select>
+    <test-buttons id="wrapped">
+      <slot></slot>
+    </test-buttons>
+    <div tabindex="0" id="focusableDiv">Focusable div</div>
+`,
+
+  is: 'test-buttons-wrapper'
+});
